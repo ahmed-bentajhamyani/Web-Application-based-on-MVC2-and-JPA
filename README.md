@@ -4,7 +4,7 @@
 
 # Web Application based on MVC2 and JPA
 
-This is an implementation of an e-commerce web site, the web application must respect the MVC2 design pattern that's means one servlet will contain all necessary actions of a specific management.
+This is an implementation of an e-commerce, the web site must respect the MVC2 design pattern that's means one servlet will contain all necessary actions of a specific management.
 
 ## Table of contents
 [Class diagram](#class-diagram)
