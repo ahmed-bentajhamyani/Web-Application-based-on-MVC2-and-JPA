@@ -69,4 +69,16 @@ public class CartDetailOperations {
 		transactionObj.commit();
 		return "true";
 	}
+	
+	public String deleteCartDetail(CartDetail cartDetail) {
+		if (!transactionObj.isActive()) {
+			transactionObj.begin();
+		}
+		if (!entityMgrObj.contains(cartDetail)) {
+			cartDetail = entityMgrObj.merge(cartDetail);
+		}
+		entityMgrObj.remove(cartDetail);
+		transactionObj.commit();
+		return "true";
+	}
 }
