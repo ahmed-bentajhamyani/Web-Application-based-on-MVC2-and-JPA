@@ -139,7 +139,7 @@
 								</div>
 
 								<div class="d-grid gap-2">
-									<a class="btn btn-primary" href="/app/cart?action=checkout">Buy Now</a>
+									<a class="btn btn-primary" href="/app/cart?action=checkout">Checkout</a>
 								</div>
 
 							</div>

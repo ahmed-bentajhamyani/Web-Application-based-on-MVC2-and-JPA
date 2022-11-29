@@ -26,6 +26,7 @@ public class CategoryOperations {
 
 	public Category findCategory(Long id) {
 		Category category = entityMgrObj.find(Category.class, id);
+		entityMgrObj.refresh(category);
 		if (category != null) {
 			return category;
 		} else {

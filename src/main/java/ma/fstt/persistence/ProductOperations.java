@@ -26,6 +26,7 @@ public class ProductOperations {
 
 	public Product findProduct(Long id) {
 		Product product = entityMgrObj.find(Product.class, id);
+		entityMgrObj.refresh(product);
 		if (product != null) {
 			return product;
 		} else {

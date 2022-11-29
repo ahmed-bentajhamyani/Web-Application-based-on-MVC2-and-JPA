@@ -1,5 +1,7 @@
 package ma.fstt.persistence;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
@@ -15,6 +17,7 @@ public class CartOperations {
 
 	public Cart findCart(Long id) {
 		Cart cart = entityMgrObj.find(Cart.class, id);
+		entityMgrObj.refresh(cart);
 		if (cart != null) {
 			return cart;
 		} else {
@@ -35,7 +38,7 @@ public class CartOperations {
 		if (!transactionObj.isActive()) {
 			transactionObj.begin();
 		}
-		Cart newCart = entityMgrObj.find(Cart.class, cart.getCartId());
+		Cart newCart = findCart(cart.getCartId());
 		newCart.setItemsPrice(itemsPrice);
 		transactionObj.commit();
 		return "true";

@@ -20,6 +20,8 @@ public class CartDetailOperations {
 				.setParameter("cart", cart);
 		List<CartDetail> cartDetails = queryObj.getResultList();
 		if (cartDetails != null && cartDetails.size() > 0) {
+			for(CartDetail cd: cartDetails)
+				entityMgrObj.refresh(cd);
 			return cartDetails;
 		} else {
 			return null;

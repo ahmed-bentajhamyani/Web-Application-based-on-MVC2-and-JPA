@@ -11,6 +11,18 @@
 	<jsp:include page="Navbar.jsp" />
 	<div class="container">
 		<div class="my-5 row">
+
+			<!-- Alert -->
+			<c:if test="${ message != null }">
+				<div class="alert alert-success alert-dismissible fade show"
+					role="alert">
+					${ message }
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+
+			<!-- Products -->
 			<c:forEach var="product" items="${productList}">
 				<div class="col-md-4">
 					<div class="card border-0 shadow-sm mb-3"

@@ -21,12 +21,14 @@ import ma.fstt.persistence.UserOperations;
 @WebServlet("/cart")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private CartOperations cartOperations;
 	private CartDetailOperations cartDetailOperations;
 	private UserOperations userOperations;
 	private ProductOperations productOperations;
 
 	public CartServlet() {
 		super();
+		cartOperations = new CartOperations();
 		cartDetailOperations = new CartDetailOperations();
 		userOperations = new UserOperations();
 		productOperations = new ProductOperations();
@@ -74,9 +76,7 @@ public class CartServlet extends HttpServlet {
 		if (loggedIn != null) {
 			// Get the cart
 			String username = (String) session.getAttribute("username");
-			UserOperations userOperations = new UserOperations();
 			Long cartId = userOperations.findUserByUsername(username).getCart().getCartId();
-			CartOperations cartOperations = new CartOperations();
 			Cart cart = cartOperations.findCart(cartId);
 			request.setAttribute("cart", cart);
 
@@ -111,7 +111,6 @@ public class CartServlet extends HttpServlet {
 		Product product = productOperations.findProduct(productId);
 
 		// Set the items price in the cart
-		CartOperations cartOperations = new CartOperations();
 		System.out.println(cart.getItemsPrice());
 		System.out.println(product.getPrice());
 		float itemsPrice = cart.getItemsPrice() + product.getPrice();
@@ -163,7 +162,6 @@ public class CartServlet extends HttpServlet {
 		}
 
 		// Set the items price in the cart
-		CartOperations cartOperations = new CartOperations();
 		System.out.println(cart.getItemsPrice());
 		System.out.println(product.getPrice());
 		float itemsPrice = cart.getItemsPrice() - product.getPrice();
@@ -172,7 +170,7 @@ public class CartServlet extends HttpServlet {
 
 		response.sendRedirect("/app/cart");
 	}
-	
+
 	private void checkOut(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
@@ -191,9 +189,13 @@ public class CartServlet extends HttpServlet {
 		}
 
 		// Set the items price in the cart
-		CartOperations cartOperations = new CartOperations();
 		cartOperations.updateItemsPrice(cart, 0);
 
-		response.sendRedirect("/app");
+		String message = "Transaction completed successfully";
+		request.setAttribute("message", message);
+		List<Product> productList = productOperations.getAllProducts();
+		request.setAttribute("productList", productList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ProductList.jsp");
+		dispatcher.forward(request, response);
 	}
 }

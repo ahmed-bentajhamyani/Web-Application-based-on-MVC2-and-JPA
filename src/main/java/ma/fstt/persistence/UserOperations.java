@@ -31,6 +31,7 @@ public class UserOperations {
 				"Select u FROM User u WHERE u.username = :username")
 				.setParameter("username", username);
 		User user = (User) queryObj.getResultList().get(0);
+		entityMgrObj.refresh(user);
 		if (user != null) {
 			return user;
 		} else {
