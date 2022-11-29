@@ -31,7 +31,7 @@ The class diagram used to implement this web application composed of four classe
 The front page of our web site contains all our products:
 
 <p align="center">
-	<img width="926" alt="1" src="https://user-images.githubusercontent.com/101653735/204502281-b2dd0302-c752-47f0-af6d-177115b8c7cb.png">
+	<img width="925" alt="1" src="https://user-images.githubusercontent.com/101653735/204512173-b1a0dbb9-fa72-4cfd-bb0a-ed9e7a6c0e4b.png">
 </p>
 
 To see more details of a product, you have to click to "More Details" button:
