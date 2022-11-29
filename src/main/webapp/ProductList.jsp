@@ -17,11 +17,11 @@
 						style="border-radius: 10px; height: 380px; width: 400;">
 						<div class="card-body">
 							<div class="text-center">
-								<button style="padding: 0; border: none; background: none;">
-									<img class="img-fluid rounded"
-										src="${ product.image }"
-										alt="Product image" style="height: 180px; width: 110;">
-								</button>
+								<a style="padding: 0; border: none; background: none;"
+									href="/app?action=product&id=<c:out value="${ product.productId }" />">
+									<img class="img-fluid rounded" src="${ product.image }"
+									alt="Product image" style="height: 180px; width: 110;">
+								</a>
 							</div>
 							<div class="mt-3">
 								<div class="row">
@@ -38,7 +38,11 @@
 								</p>
 
 								<div class="text-center">
-									<a class="btn btn-success btn-sm mx-1" href="/app/cart?action=add&id=<c:out value="${ product.productId }" />">
+									<a class="btn btn-primary btn-sm mx-1"
+										href="/app?action=product&id=<c:out value="${ product.productId }" />">
+										<i class="fa-solid fa-cart-shopping"></i> Details
+									</a> <a class="btn btn-success btn-sm mx-1"
+										href="/app/cart?action=add&id=<c:out value="${ product.productId }" />">
 										<i class="fa-solid fa-cart-shopping"></i> Add to Cart
 									</a>
 								</div>

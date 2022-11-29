@@ -18,15 +18,32 @@ import ma.fstt.persistence.ProductOperations;
 @WebServlet("")
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ProductOperations productOperations;
+	private CategoryOperations categoryOperations;
 
 	public ProductServlet() {
 		super();
+		productOperations = new ProductOperations();
+		categoryOperations = new CategoryOperations();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String action = request.getParameter("action");
+
 		try {
-			listProducts(request, response);
+			if (action == null) {
+				listProducts(request, response);
+			} else {
+				switch (action) {
+				case "product":
+					showProduct(request, response);
+					break;
+				default:
+					listProducts(request, response);
+					break;
+				}
+			}
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 		}
@@ -40,15 +57,28 @@ public class ProductServlet extends HttpServlet {
 	private void listProducts(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		ProductOperations productOperations = new ProductOperations();
 		List<Product> productList = productOperations.getAllProducts();
 		request.setAttribute("productList", productList);
 
-		CategoryOperations categoryOperations = new CategoryOperations();
 		List<Category> categoryList = categoryOperations.getAllCategories();
 		request.setAttribute("categoryList", categoryList);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("ProductList.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	private void showProduct(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		// Find the added product
+		Long productId = Long.parseLong(request.getParameter("id"));
+		Product product = productOperations.findProduct(productId);
+		request.setAttribute("product", product);
+		
+		List<Category> categoryList = categoryOperations.getAllCategories();
+		request.setAttribute("categoryList", categoryList);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ShowProduct.jsp");
 		dispatcher.forward(request, response);
 	}
 }

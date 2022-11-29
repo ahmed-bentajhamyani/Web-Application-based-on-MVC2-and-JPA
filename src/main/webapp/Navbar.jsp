@@ -35,11 +35,12 @@ String username = (String) request.getSession().getAttribute("username");
 				My Store</a>
 
 			<ul class="navbar-nav">
-			<c:forEach var="category" items="${categoryList}">
-					<li class="nav-item mx-3"><a class="nav-link" aria-current="page"
-						href="#"><c:out value="${category.categoryName }" /></a></li>
+				<c:forEach var="category" items="${categoryList}">
+					<li class="nav-item mx-3"><a class="nav-link"
+						aria-current="page" href="#"><c:out
+								value="${category.categoryName }" /></a></li>
 				</c:forEach>
-				
+
 
 				<c:if test="${ username == null }">
 					<li class="nav-item"><a class="nav-link"
@@ -47,8 +48,9 @@ String username = (String) request.getSession().getAttribute("username");
 				</c:if>
 
 				<c:if test="${ username != null }">
-					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"><i
 							class="fa-solid fa-user"></i> <c:out value="${ username }" /> </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="/app/logout">Logout</a></li>
