@@ -52,7 +52,7 @@
 								<div class="text-center">
 									<a class="btn btn-primary btn-sm mx-1"
 										href="/app?action=product&id=<c:out value="${ product.productId }" />">
-										<i class="fa-solid fa-cart-shopping"></i> Details
+										<i class="fa-solid fa-circle-info"></i> More Details
 									</a> <a class="btn btn-success btn-sm mx-1"
 										href="/app/cart?action=add&id=<c:out value="${ product.productId }" />">
 										<i class="fa-solid fa-cart-shopping"></i> Add to Cart
