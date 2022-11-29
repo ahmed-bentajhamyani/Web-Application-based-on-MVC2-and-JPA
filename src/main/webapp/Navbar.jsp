@@ -35,13 +35,6 @@ String username = (String) request.getSession().getAttribute("username");
 				My Store</a>
 
 			<ul class="navbar-nav">
-				<c:forEach var="category" items="${categoryList}">
-					<li class="nav-item mx-3"><a class="nav-link"
-						aria-current="page" href="#"><c:out
-								value="${category.categoryName }" /></a></li>
-				</c:forEach>
-
-
 				<c:if test="${ username == null }">
 					<li class="nav-item"><a class="nav-link"
 						href="/app/LoginForm.jsp"><i class="fa-solid fa-user"></i></a></li>
