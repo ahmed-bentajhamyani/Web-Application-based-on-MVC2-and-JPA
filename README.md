@@ -18,10 +18,10 @@ This is an implementation of an e-commerce web site, the web application must re
 
 ## Class diagram
 
-The class diagram used to implement this web application composed of four classes "User", "Product", "Cart" and "CartDetail":
+The class diagram used to implement this web application composed of four classes "User", "Product", "Category", "Cart" and "CartDetail":
 
 <p align="center">
-	<img width="938" alt="image" src="https://user-images.githubusercontent.com/101653735/204472891-774c2689-f513-469d-930b-c115990183e5.png">
+	<img width="937" alt="image" src="https://user-images.githubusercontent.com/101653735/204596688-6a04bcf6-9644-40e3-8003-2e37e9657171.png">
 </p>
 
 ## Testing the Application
@@ -31,13 +31,13 @@ The class diagram used to implement this web application composed of four classe
 The front page of our web site contains all our products:
 
 <p align="center">
-	<img width="925" alt="1" src="https://user-images.githubusercontent.com/101653735/204512173-b1a0dbb9-fa72-4cfd-bb0a-ed9e7a6c0e4b.png">
+	<img width="925" alt="1" src="https://user-images.githubusercontent.com/101653735/204595909-558b4653-b7ed-498c-a0a1-9a1e6f8f1288.png">
 </p>
 
 To see more details of a product, you have to click to "More Details" button:
 
 <p align="center">
-	<img width="926" alt="2" src="https://user-images.githubusercontent.com/101653735/204504139-a87447c6-e375-43cf-b3c0-693256d9bd57.png">
+	<img width="925" alt="2" src="https://user-images.githubusercontent.com/101653735/204595959-1b4fd9b5-9703-43bb-99cf-8102dbef5a8c.png">
 </p>
 
 And to add the product to your shopping cart you have to click "Add To Cart" button, but first you have to signup if you don't have an account or login if you do. 
