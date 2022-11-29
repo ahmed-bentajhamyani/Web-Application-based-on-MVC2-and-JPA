@@ -4,18 +4,17 @@
 
 # Web Application based on MVC2 and JPA
 
-This is an implementation of an e-commerce, the web site must respect the MVC2 design pattern that's means one servlet will contain all necessary actions of a specific management.
+This is an implementation of an e-commerce web site, the web application must respect the MVC2 design pattern that's means one servlet will contain all necessary actions of a specific management.
 
 ## Table of contents
 [Class diagram](#class-diagram)
 
-[Database schema](#database-schema)
-
 [Testing the Application](#testing-the-application)
-* [Articles](#articles)
-* [Clients](#clients)
-* [Commandes](#commandes)
-* [Ligne Commandes](#ligne-commandes)
+* [Products](#products)
+* [Login](#login)
+* [Signup](#signup)
+* [Shopping Cart](#shopping-cart)
+* [Logout](#logout)
 
 ## Class diagram
 
@@ -29,68 +28,81 @@ The class diagram used to implement this web application composed of four classe
 
 ### Products
 
-The list is empty in first time:
+The front page of our web site contains all our products:
 
 <p align="center">
-	<img width="960" alt="1" src="https://user-images.githubusercontent.com/101653735/203139469-50f0a693-2047-4dc0-ac5c-65975c57b1ae.png">
+	<img width="926" alt="1" src="https://user-images.githubusercontent.com/101653735/204502281-b2dd0302-c752-47f0-af6d-177115b8c7cb.png">
 </p>
 
-To add an article we click on "Add New Article":
+To see more details of a product, you have to click to "More Details" button:
 
 <p align="center">
-	<img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/203139097-c3469139-eee1-4cda-9dc9-d53e14acb241.png">
+	<img width="926" alt="2" src="https://user-images.githubusercontent.com/101653735/204504139-a87447c6-e375-43cf-b3c0-693256d9bd57.png">
 </p>
 
-And we click save:
+And to add the product to your shopping cart you have to click "Add To Cart" button, but first you have to signup if you don't have an account or login if you do. 
+
+### Login
+
+When you click the user icon in the navbar the login form appears:
 
 <p align="center">
-	<img width="960" alt="3" src="https://user-images.githubusercontent.com/101653735/203139197-1848054e-e2ff-44eb-8021-db11678182ec.png">
+	<img width="925" alt="3" src="https://user-images.githubusercontent.com/101653735/204504831-4ebaf3ed-3689-402e-895b-24c1d47101ce.png">
 </p>
 
-### Clients
+So if you already have an account you enter your username and you password and you're logged in. If you don't have an account you click the link says "Don't have an account".
 
-The same as articles we added a client to the list:
+### Signup
 
 <p align="center">
-	<img width="960" alt="5" src="https://user-images.githubusercontent.com/101653735/203140133-67e05054-918c-498d-a85e-d6a62f3e283e.png">
+	<img width="926" alt="4" src="https://user-images.githubusercontent.com/101653735/204505419-010ef411-c80d-406c-b497-de197b32e514.png">
 </p>
 
-We can edit and delete any client we want so let's edit the adresse of this client:
+In the signup form you have to enter your email, username and password.
+
+### Shopping Cart
+
+To open your cart you have to click the shooping cart icon in the navbar.
+If you're not logged a page appears and says "you haven't login. please login":
 
 <p align="center">
-	<img width="960" alt="6" src="https://user-images.githubusercontent.com/101653735/203140256-962d5156-7fb5-4b29-8694-fa9e921fed16.png">
+	<img width="924" alt="Cart without login" src="https://user-images.githubusercontent.com/101653735/204506892-6f179c18-4e70-4814-bed5-21993e6f782a.png">
 </p>
 
-And ...
+You logged in and your shopping cart is empty you have to add items to it now:
 
 <p align="center">
-	<img width="960" alt="7" src="https://user-images.githubusercontent.com/101653735/203140314-c68a4d89-b4de-42ae-ada2-c434331e4ab1.png">
+	<img width="925" alt="Cart without product" src="https://user-images.githubusercontent.com/101653735/204507093-2695db92-f370-481a-b791-ae7989a89246.png">
 </p>
 
-### Commandes
-
-To add a commande we have to specify the client who ordered by his id and of course the date of the order:
+So you clicked the button says "Show now" and you added an items to your shopping cart:
 
 <p align="center">
-	<img width="960" alt="8" src="https://user-images.githubusercontent.com/101653735/203140593-a9c753e9-b631-4024-ae6b-ae6c6ec9e563.png">
+	<img width="923" alt="6" src="https://user-images.githubusercontent.com/101653735/204507361-683f225d-afbb-4992-9b19-f4e2b30888a1.png">
 </p>
 
-And we save:
+You can by clicking the plus button add the quantity of the product in your shopping cart or the minus button to subtract the quantity:
 
 <p align="center">
-	<img width="960" alt="9" src="https://user-images.githubusercontent.com/101653735/203140677-c81d697a-955b-4f97-b761-d0c2de98bc21.png">
+	<img width="925" alt="7" src="https://user-images.githubusercontent.com/101653735/204507832-67038f93-7657-4f68-af42-642c074f431a.png">
 </p>
 
-### Ligne Commandes
-
-The same as commande, to add a ligne of commande we have to specify the article in this ligne commande, its amount "quantité" and the id of the commande that belongs to it:
+As you see there is a card also contains the price total of the product in the cart:
 
 <p align="center">
-	<img width="960" alt="10" src="https://user-images.githubusercontent.com/101653735/203142087-382dea83-5c7a-4fe9-a065-860fbc94edd6.png">
+	<img width="923" alt="8" src="https://user-images.githubusercontent.com/101653735/204508547-433d057b-55a4-44d3-946d-8a6c4677a473.png">
 </p>
 
-And we save:
+And the checkout button to make the transaction, if the transaction complete we go to the front page and a success alert appears:
 
 <p align="center">
-	<img width="960" alt="11" src="https://user-images.githubusercontent.com/101653735/203142116-3bff2399-85d5-4f67-965e-6248a0f792cc.png">
+	<img width="925" alt="9" src="https://user-images.githubusercontent.com/101653735/204509212-1e5380a3-a6d1-4603-a818-90839e1e6801.png">
+</p>
+
+### Logout
+
+Finally you can logout from our web site:
+
+<p align="center">
+	<img width="926" alt="10" src="https://user-images.githubusercontent.com/101653735/204511609-c05da9eb-a92a-4129-a44c-730f5afbbf5d.png">
 </p>
